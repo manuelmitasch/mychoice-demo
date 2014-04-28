@@ -15,6 +15,11 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
+App.ApplicationController = Ember.Controller.extend({
+  needs: 'user-profile',
+  user: Ember.computed.alias("controllers.user-profile")
+});
+
 App.UserProfileController = Ember.ObjectController.extend({
   id: 1,
   userName: 'manuel_mitasch',
