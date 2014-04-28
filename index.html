@@ -9,20 +9,62 @@
 </head>
 <body>
   <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
+    {{partial "navigation"}}
 
-    {{outlet}}
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-md-12 column">
+          {{outlet}}
+        </div>
+      </div>
+
+      {{partial "footer"}}
+    </div>
   </script>
 
   <script type="text/x-handlebars" id="index">
-    <ul>
-    {{#each item in model}}
-      <li>{{item}}</li>
-    {{/each}}
-    </ul>
+    Showing Index template.
+  </script>
 
-    {{foo}} 
-    {{input type="text" value=foo}}
+  <script type="text/x-handlebars" id="_navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> 
+           <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span>
+           <span class="icon-bar"></span></button> <a class="navbar-brand" href="#">myChoice</a>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="sessions.html">Sessions</a>
+            </li>
+            <li>
+              <a href="quizzes.html">Quiz list</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, Andreas!<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="user-profile.html">User profile</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                  </ul>
+                </li>
+          </ul>
+        </div>
+      <div> 
+    </nav>
+  </script>
+
+  <script type="text/x-handlebars" id="_footer">
+    <div id="footer">
+      <hr/>
+      <div class="container">
+        <a class="text-muted" href="impressum.html">impressum.</a>
+      </div>
+    </div>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
