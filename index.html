@@ -231,12 +231,12 @@
           </div>
           <div class="form-group">
             <div class="col-md-2">   
-                  <select class="form-control input-sm" id="select">
-                      <option>All</option>
-                      <option>Quiz</option>
-                      <option>Exams</option>
-                      <option>Learn</option>
-                  </select>
+                  {{view Ember.Select 
+                      class="form-control input-sm" 
+                      content=tags 
+                      optionValuePath="content.id" 
+                      optionLabelPath="content.name" 
+                      value=filterByTag}}
               </div>
             </div>
             <div class="col-md-2">

@@ -53,9 +53,18 @@ App.QuizzesController = Ember.ArrayController.extend({
   needs: 'user-profile',
 
   filterMyQuizzes: false,
+  filterByTag: 0,
+
+  tags: [
+    {name: "Select all", id: 0},
+    {name: "Quiz", id: 1},
+    {name: "Learn", id: 2},
+    {name: "Exam", id: 3}
+  ],
 
   filteredQuizzes: function() {
     var result = this.get('content'),
+        filterByTag = this.get('filterByTag'),
         currentUserId = this.get('controllers.user-profile.id');
 
     // filter my quizzes
@@ -63,7 +72,14 @@ App.QuizzesController = Ember.ArrayController.extend({
       result = result.filterProperty('owner', currentUserId);
     }
 
+    // filter by selected tag
+    if (this.get('filterByTag') !== 0) {
+      result = result.filter(function(item) {
+        return item.tags.contains(filterByTag);
+      });
+    }
+
     return result;
-  }.property('content.@each', 'filterMyQuizzes')
+  }.property('content.@each', 'filterMyQuizzes', 'filterByTag')
 
 });
