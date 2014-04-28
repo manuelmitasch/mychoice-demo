@@ -54,6 +54,7 @@ App.QuizzesController = Ember.ArrayController.extend({
 
   filterMyQuizzes: false,
   filterByTag: 0,
+  filterByName: '',
 
   tags: [
     {name: "Select all", id: 0},
@@ -65,6 +66,7 @@ App.QuizzesController = Ember.ArrayController.extend({
   filteredQuizzes: function() {
     var result = this.get('content'),
         filterByTag = this.get('filterByTag'),
+        filterByName = this.get('filterByName').toLowerCase(),
         currentUserId = this.get('controllers.user-profile.id');
 
     // filter my quizzes
@@ -79,7 +81,14 @@ App.QuizzesController = Ember.ArrayController.extend({
       });
     }
 
+    // filter by name
+    if (!Ember.isEmpty('filterByName')) {
+      result = result.filter(function(item) {
+        return item.name.toLowerCase().indexOf(filterByName) > -1;
+      })
+    }
+
     return result;
-  }.property('content.@each', 'filterMyQuizzes', 'filterByTag')
+  }.property('content.@each', 'filterMyQuizzes', 'filterByTag', 'filterByName')
 
 });
