@@ -1,15 +1,17 @@
 App = Ember.Application.create();
 
+App.Router.reopen({
+  rootURL: '/mychoice-demo/'
+});
+
 App.Router.map(function() {
-  // put your routes here
+  this.resource('quizzes');
+  this.route('user-profile', { path: "/user"});
 });
 
 App.IndexRoute = Ember.Route.extend({
-  model: function() {
-    return ['red', 'yellow', 'blue'];
+  beforeModel: function() {
+    this.transitionTo('quizzes');
   }
 });
 
-App.IndexController = Ember.ArrayController.extend({
-  foo: 'bar'
-});
