@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+body {
+/*  background-image: url('images/stockholm.jpg'); */
+ background-repeat:no-repeat;
+ display: compact;
+ padding-top: 60px;
+}
+
+.row-buffer20 { margin-top:20px; }
+.row-buffer30 { margin-top:30px; }
+.row-buffer40 { margin-top:40px; }
+.row-buffer80 { margin-top:80px; }
+
+.btn-no-padding {
+	padding:0px;
+}
+
+.table-half{
+	width:50%;
+}
+
+.vcenter {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+
+.add-choice .dropdown-toggle {
+  height: 30px;
+  border-left: 1px solid rgb(255, 255, 255);
+}
+
+.add-choice {
+  margin-top: 10px;
+}
+
+.panel-group .edit-section {
+  overflow: visible;
+}
