@@ -41,14 +41,14 @@
               <a href="sessions.html">Sessions</a>
             </li>
             <li>
-              <a href="quizzes.html">Quiz list</a>
+              {{#link-to "quizzes"}}Quiz list{{/link-to}}
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, Andreas!<b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="user-profile.html">User profile</a></li>
+                    <li>{{#link-to "user-profile"}}User profile{{/link-to}}</li>
                     <li><a href="index.html">Logout</a></li>
                   </ul>
                 </li>
@@ -68,7 +68,146 @@
   </script>
 
   <script type="text/x-handlebars" id="user-profile">
-    User profile
+    <h2>
+      Your user profile, <strong>Andreas Pfeiffer</strong>.
+    </h2>
+    <p>
+      Welcome to your private user profile.<br />
+      You can change your private data here or see your quiz results.
+    </p>
+    
+    <div class="row-buffer30"></div>
+                
+    <div class="row clearfix">
+      <div class="col-md-12 column">
+        <div class="row clearfix">
+          <div class="col-md-12 column">
+          
+          <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#resultOverview">
+                    Result overview
+                  </a>
+                </h4>
+              </div>
+              <div id="resultOverview" class="panel-collapse collapse">
+                <div class="panel-body">
+                <p>You participated in the following quizzes: </p>
+              <div class="table-responsive">
+                <table class="table table-hover table-condensed">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Quiz name</th>
+                    <th>Type</th>
+                    <th>Options</th>
+                  </tr>
+                </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Session name</td>
+                      <td>Study</td>
+                      <td><button type="button" class="btn btn-link btn-sm btn-no-padding">Show detailed statistics</button></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Session name</td>
+                      <td>Exam</td>
+                      <td><button type="button" class="btn btn-link btn-sm btn-no-padding">Show detailed statistics</button></td>
+                    </tr>
+                  </tr>
+                   <tr>
+                      <td>3</td>
+                      <td>Session name</td>
+                      <td>Quiz</td>
+                      <td><button type="button" class="btn btn-link btn-sm btn-no-padding">Show detailed statistics</button></td>
+                    </tr>
+                  </tr>
+                 </tbody>
+                </table>
+                <div class="pull-right">
+                  <ul class="pagination pagination-sm">
+                    <li class="disabled"><a href="#">«</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">»</a></li>
+                  </ul>
+                </div>                  
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#userProfile">
+                    Profile data
+                  </a>
+                </h4>
+              </div>
+              <div id="userProfile" class="panel-collapse collapse">
+                <div class="panel-body">
+                <p>You can change your private data here.</p>
+              <form role="form">
+                <div class="form-group">
+                  <label for="inputUserName">Username</label>
+                  <input type="text" class="form-control" id="inputUserName" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                  <label for="inputFirstName">First name</label>
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="Enter first name">
+                </div>
+                <div class="form-group">
+                  <label for="inputLastName">Last name</label>
+                  <input type="text" class="form-control" id="inputLastName" placeholder="Enter last name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Current password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter current password">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">New password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                </div>
+                <button type="button" class="btn btn-info btn-block">Submit and Save</button>
+              </form>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#deleteUserAccount">
+                    Delete user account
+                  </a>
+                </h4>
+              </div>
+              <div id="deleteUserAccount" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <p>By pressing the button below, your user account will be gone.</p>
+                <button type="button" id="loading-example-btn" class="btn btn-danger btn-block">
+                  Delete everything.
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </script>
 
   <script type="text/x-handlebars" id="quizzes">
