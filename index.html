@@ -262,16 +262,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Session name</td>
-              <td>Learn</td>
-              <td>
-                <button type="button" class="btn btn-link btn-sm btn-no-padding">Start</button>
-                |
-                <button type="button" class="btn btn-link btn-sm btn-no-padding">Create Session</button>
-              </td>
-            </tr>
+            {{#each model}}
+              <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+                <td>{{tags}}</td>
+                <td>
+                  <button type="button" class="btn btn-link btn-sm btn-no-padding">Start</button>
+                  |
+                  <button type="button" class="btn btn-link btn-sm btn-no-padding">Create Session</button>
+                </td>
+              </tr>
+            {{/each}}
          </tbody>
         </table>
         </div>          
